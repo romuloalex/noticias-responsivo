@@ -1,0 +1,73 @@
+#primary{
+    padding-block: 20px;
+
+    div{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    div:nth-child(2){
+        margin-inline: auto;
+    }
+}
+
+#primary strong{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+}
+
+#primary div:nth-child(3){
+    justify-self: end;
+}
+
+#secondary{
+    padding-block: 14px;
+    border: solid 1px var(--stroke-color);
+    border-inline:  none;
+    justify-content: space-between;
+}
+
+#secondary a{
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+@media (max-width: 640px){
+    /* Esconde os textos "Menu" e "Buscar" no mobile, mantendo somente os ícones */
+    #primary div:first-child strong,
+    #primary div:last-child strong{
+        display: none;
+    }
+
+    /* Mantém o logo centralizado pelo grid existente */
+    #primary{ 
+        padding-block: 16px;
+    }
+
+    /* Nave secundária rolável horizontalmente; centralizada no mobile */
+    #secondary{
+        justify-content: center;
+        gap: 24px;
+        overflow-x: auto;
+        -ms-overflow-style: none; /* IE e Edge */
+        scrollbar-width: none;    /* Firefox */
+    }
+    #secondary::-webkit-scrollbar{ display: none; }
+
+    #secondary a{
+        white-space: nowrap;
+    }
+
+    /* Oculta os 4 últimos links no mobile */
+    #secondary a:nth-last-child(-n+4){
+        display: none;
+    }
+}
+
+/* Ajuste fino para viewport 412 x 892 */
+@media (max-width: 412px){
+    #secondary{ gap: 20px; }
+}
